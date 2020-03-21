@@ -6,7 +6,12 @@ namespace PadawansTask2
     {
         public static int Calculate(int number, int add, int count)
         {
-            //code here
+            int newNum = number * count;
+            for (int i = 0; i < count; i++)
+            {
+                newNum += i * add;
+            }
+            return newNum;
         }
     }
 }
