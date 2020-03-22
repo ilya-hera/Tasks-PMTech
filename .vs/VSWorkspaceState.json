@@ -1,9 +1,9 @@
 {
   "ExpandedNodes": [
     "",
-    "\\Task3",
-    "\\Task3\\Tests"
+    "\\Task4",
+    "\\Task4\\Tests"
   ],
-  "SelectedNode": "\\Task3\\Tests\\PublicTest.cs",
+  "SelectedNode": "\\Task4\\StringHelper.cs",
   "PreviewInSolutionExplorer": false
 }

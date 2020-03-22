@@ -6,7 +6,13 @@ namespace PadawansTask5
     {
         public static string CheckIfSymmetric(int[] source)
         {
-            //code here
+
+            int[] newArray;
+            newArray = source
+            for (int i = 0; source.Length > i; i++)
+            {
+
+            }
         }
     }
 }
