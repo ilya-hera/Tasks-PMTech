@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 
 namespace PadawansTask14
 {
@@ -17,7 +18,10 @@ namespace PadawansTask14
         /// </example>
         public IEnumerable<string> GetUppercaseStrings(IEnumerable<string> data)
         {
-            //code here
+            foreach (var i in data)
+            {
+                yield return i?.ToUpper() ?? null;
+            }
         }
 
         /// <summary> Transforms an each string from sequence to its length.</summary>
@@ -32,7 +36,10 @@ namespace PadawansTask14
         /// </example>
         public IEnumerable<int> GetStringsLength(IEnumerable<string> data)
         {
-            //code here
+            foreach (var i in data)
+            {
+                yield return i?.ToCharArray().Length ?? 0;
+            }
         }
 
         /// <summary>Transforms integer sequence to its square sequence, f(x) = x * x. </summary>
@@ -47,7 +54,10 @@ namespace PadawansTask14
         /// </example>
         public IEnumerable<long> GetSquareSequence(IEnumerable<int> data)
         {
-            //code here
+            foreach (var i in data)
+            {
+                yield return (long)Math.Pow(i, 2);
+            }
         }
 
         /// <summary> Filters a string sequence by a prefix value (case insensitive).</summary>
@@ -67,7 +77,24 @@ namespace PadawansTask14
         /// </example>
         public IEnumerable<string> GetPrefixItems(IEnumerable<string> data, string prefix)
         {
-            //code here
+            if (!data.Any())
+            {
+                yield break;
+            }
+            foreach (var VARIABLE in data)
+            {
+                if (string.IsNullOrEmpty(VARIABLE))
+                {
+                    continue;
+                }
+                if (data.Contains(prefix) || data.Contains(prefix.ToUpper()) || data.Contains(prefix.ToLower()))
+                {
+                    var value = VARIABLE;
+                    yield return VARIABLE;
+                    yield break;
+                }
+
+            }
         }
 
         /// <summary> Finds the 3 largest numbers from a sequence.</summary>
@@ -84,7 +111,14 @@ namespace PadawansTask14
         /// </example>
         public IEnumerable<int> Get3LargestItems(IEnumerable<int> data)
         {
-            //code here
+            int count = data.Count() > 3 ? 3 : data.Count();
+            var newList = data.ToList();
+            for (var i=0; i < count; i++)
+            {
+                int max = newList.Max();
+                newList.Remove(newList.Max());
+                yield return max;
+            }
         }
 
         /// <summary> Calculates sum of all integers from object array.</summary>
@@ -100,7 +134,17 @@ namespace PadawansTask14
         /// </example>
         public int GetSumOfAllIntegers(object[] data)
         {
-            //code here
+            int t = 0;
+            foreach (var VARIABLE in data)
+            {
+                if (VARIABLE is int)
+                {
+                    t += (int) VARIABLE;
+                }
+               
+            }
+
+            return t;
         }
     }
 }
